@@ -21,7 +21,7 @@ bot.on('message', message => {
         let timeToConvert   = splitTime(m[3]);
         let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
-        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('ha z');
+        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('h:mm z');
 
         message.reply(convertedTime);
     }
