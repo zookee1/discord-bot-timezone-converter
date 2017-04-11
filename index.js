@@ -17,11 +17,10 @@ bot.on('message', message => {
         let today = new Date();
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
-        console.log('m[2]', m[2]);
         let timeToConvert   = splitTime(m[3]);
         let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
-        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('h:mm z');
+        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('LT');
 
         message.reply(convertedTime);
     }
