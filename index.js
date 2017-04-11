@@ -5,6 +5,7 @@ const converter = require('moment-timezone');
 const bot = new Discord.Client();
 const regex = /^!tz\s+(\w+\/?\w+?)\s+(\w+\/?\w+?)\s+(\w+\:?\w+)?/g;
 
+//https://www.iana.org/time-zones << TimeZoneDB
 
 bot.on("ready", function () {
     console.log("Running.");
