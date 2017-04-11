@@ -48,6 +48,7 @@ function formatDate(date) {
 function splitTime(string) {
     const regex = /^(\d+)\:?(\d+)?/g;
     let m = regex.exec(string);
+    console.log('m2' + m[2]);
 
     minutes = (typeof m[2] === 'undefined' ? 0 : m[1]);
 
