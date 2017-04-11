@@ -22,9 +22,9 @@ bot.on('message', message => {
                 regex.lastIndex++;
             }
 
-            console.log(m[0]);
             console.log(m[1]);
             console.log(m[2]);
+            console.log(m[3]);
         }
         message.reply('bla');
     }
