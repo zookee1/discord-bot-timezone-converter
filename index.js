@@ -16,13 +16,7 @@ bot.on("ready", function () {
 bot.on('message', message => {
     if(message.content.match(regex)) {
         let str = message.content;
-        let m;
-
-        while ((m = regex.exec(str)) !== null) {
-            if (m.index === regex.lastIndex) {
-                regex.lastIndex++;
-            }
-        }
+        let m = regex.exec(str);
 
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
