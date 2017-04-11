@@ -12,9 +12,14 @@ client.on('message', message => {
   }
 });
 
-client.on('disconnected', function () {
-    console.log('Disconnected.');
-    process.exit(1);
-});
+
+try { 
+    client.on('disconnected', function () {
+     
+    });
+}
+catch(err) {
+    console.log(err.message);
+}
 
 client.login(env.discord.token);
