@@ -38,8 +38,8 @@ function splitTime(string) {
     const regex = /^(\d+)\:?(\d+)?(\w+)?/g;
     let m = regex.exec(string);
 
-    minutes = (typeof m[2] === 'undefined' ? 0 : m[1]);
-    pm      = (typeof m[3] === 'undefined' ? 0 : 12)
+    minutes = (typeof m[3] === 'undefined' ? 0 : m[1]);
+    pm      = (typeof m[4] === 'undefined' ? 0 : 12)
 
-    return [parseInt(m[1])+pm,minutes];
+    return [parseInt(m[2])+pm,minutes];
 }
