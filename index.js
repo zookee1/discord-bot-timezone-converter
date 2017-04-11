@@ -6,7 +6,7 @@ const converter = require('moment-timezone');
 const ins = new InsomBot;
 const bot = new Discord.Client();
 
-const regex = /^!tz\s+(\w+\/?\w+?)\s+(\w+\/?\w+?)\s+(\w+)$/g;
+        const regex = /^!tz\s+(\w+\/?\w+?)\s+(\w+\/?\w+?)\s+(\w+)/g;
 
 
 bot.on("ready", function () {
@@ -23,10 +23,6 @@ bot.on('message', message => {
                 regex.lastIndex++;
             }
         }
-
-        m.forEach((match, groupIndex) => {
-            console.log(`Found match, group ${groupIndex}: ${match}`);
-        });
 
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
