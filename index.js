@@ -11,18 +11,21 @@ bot.on("ready", function () {
 });
 
 bot.on('message', message => {
-    if(message.content.match(regex)) {
-        let str = message.content;
-        let m = regex.exec(str);
-        let today = new Date();
-        let fromTimeZone    = m[1];
-        let toTimeZone      = m[2];
-        let timeToConvert   = splitTime(m[3]);
-        let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
-        let startTimeInTimezone = converter.tz((d), fromTimeZone);
-        let convertedTime = startTimeInTimezone.clone().tz('Europe/Berlin').format('LT');
+    // if(message.content.match(regex)) {
+    //     let str = message.content;
+    //     let m = regex.exec(str);
+    //     let today = new Date();
+    //     let fromTimeZone    = m[1];
+    //     let toTimeZone      = m[2];
+    //     let timeToConvert   = splitTime(m[3]);
+    //     let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
+    //     let startTimeInTimezone = converter.tz((d), fromTimeZone);
+    //     let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('LT');
 
-        message.reply(convertedTime);
+    //     message.reply(convertedTime);
+    // }
+    if(message.content == 'ping'){
+        message.reply('pong');
     }
 });
 
