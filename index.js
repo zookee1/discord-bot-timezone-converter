@@ -14,14 +14,11 @@ bot.on('message', message => {
     if(message.content.match(regex)) {
         let str = message.content;
         let m = regex.exec(str);
-        let d = new Date();
-        console.log(d);
+        let today = new Date();
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
-        let hours           = splitTime(m[3])
-        console.log(hours[0], hours[1]);
-        d.setHours(hours[0],hours[1],0,0);
-        console.log(d);
+        let timeToConvert   = splitTime(m[3]);
+        let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
         let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('ha z');
 
@@ -48,7 +45,6 @@ function formatDate(date) {
 function splitTime(string) {
     const regex = /^(\d+)\:?(\d+)?/g;
     let m = regex.exec(string);
-    console.log('m' + m);
 
     minutes = (typeof m[2] === 'undefined' ? 0 : m[1]);
 
