@@ -18,6 +18,7 @@ bot.on('message', message => {
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
         let timeToConvert   = d.setHours(splitTime(m[3]));
+        console.log(timeToConvert);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
         let convertedTime = formatDate(startTimeInTimezone.clone().tz(toTimeZone).format());
 
