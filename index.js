@@ -1,12 +1,9 @@
 const env = require('./config.json');
-const InsomBot = require('./insombot/index.js');
 const Discord = require('discord.js');
 const converter = require('moment-timezone');
 
-const ins = new InsomBot;
 const bot = new Discord.Client();
-
-        const regex = /^!tz\s+(\w+\/?\w+?)\s+(\w+\/?\w+?)\s+(\w+)/g;
+const regex = /^!tz\s+(\w+\/?\w+?)\s+(\w+\/?\w+?)\s+(\w+)/g;
 
 
 bot.on("ready", function () {
@@ -18,16 +15,13 @@ bot.on('message', message => {
         let str = message.content;
         let m = regex.exec(str);
         let d = new Date();
-
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
-        let timeToConvert   = d.getTime(m[3]);
-        let startTimeInTimezone = converter.tz(timeToConvert, fromTimeZone);
+        let timeToConvert   = m[3];
+        let startTimeInTimezone = converter.tz(d.getTime(timeToConvert), fromTimeZone);
         let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format();
-        console.log(startTimeInTimezone);
-        console.log(convertedTime);
 
-        message.reply('stuff');
+        message.reply(convertedTime.toTimeString().replace(/.*(\d{2}:\d{2}).*/, "$1"););
     }
 });
 
