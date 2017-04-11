@@ -37,11 +37,10 @@ bot.login(env.discord.token);
 function splitTime(string) {
     const regex = /^(\d+)\:?(\d+)?(\w+)?/g;
     let m = regex.exec(string);
-    console.log(m);
 
     hours   = (typeof m[2] === 'undefined' ? 0 : m[2]);
     minutes = (typeof m[3] === 'undefined' ? 0 : m[3]);
     pm      = (typeof m[4] === 'undefined' ? 0 : 12)
-
+    console.log(hours,minutes,pm);
     return [parseInt(hours)+pm,minutes];
 }
