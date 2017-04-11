@@ -1,6 +1,7 @@
 const env = require('./config.json');
 const InsomBot = require('./insombot/index.js');
 const Discord = require('discord.js');
+const converter = require('moment-timezone.min.js');
 
 const ins = new InsomBot;
 const bot = new Discord.Client();
@@ -21,12 +22,14 @@ bot.on('message', message => {
             if (m.index === regex.lastIndex) {
                 regex.lastIndex++;
             }
-
-            console.log(m[1]);
-            console.log(m[2]);
-            console.log(m[3]);
         }
-        message.reply('bla');
+
+        let fromTimeZone    = m[1];
+        let toTimeZone      = m[2];
+        let timeToConvert   = m[3];
+        let startTimeInTimezone = converter.tz(timeToConvert, fromTimeZone);
+
+        message.reply(startTimeInTimezone.clone.tz(toTimeZone));
     }
 });
 
