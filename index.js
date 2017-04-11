@@ -20,7 +20,7 @@ bot.on('message', message => {
         let timeToConvert   = splitTime(m[3]);
         let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
-        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('LT');
+        let convertedTime = startTimeInTimezone.tz(toTimeZone).format('LT');
 
         message.reply(convertedTime);
     }
@@ -41,6 +41,6 @@ function splitTime(string) {
     hours   = (typeof m[1] === 'undefined' ? 0 : m[1]);
     minutes = (typeof m[2] === 'undefined' ? 0 : m[2]);
     pm      = (typeof m[3] === 'undefined' ? 0 : 12)
-    console.log(hours,minutes,pm);
+
     return [parseInt(hours)+pm,minutes];
 }
