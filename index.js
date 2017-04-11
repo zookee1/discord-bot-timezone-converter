@@ -21,7 +21,7 @@ bot.on('message', message => {
         let startTimeInTimezone = converter.tz(d.getTime(timeToConvert), fromTimeZone);
         let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format();
 
-        message.reply(convertedTime.toTimeString().replace(/.*(\d{2}:\d{2}).*/, "$1"););
+        message.reply(convertedTime.toTimeString().replace(/.*(\d{2}:\d{2}).*/, "$1"));
     }
 });
 
