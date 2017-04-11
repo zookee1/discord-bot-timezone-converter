@@ -19,6 +19,7 @@ try {
     });
 }
 catch(err) {
+    console.log("ERROR");
     console.log(err.message);
 }
 
