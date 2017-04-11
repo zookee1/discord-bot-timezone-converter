@@ -13,19 +13,21 @@ bot.on("ready", function () {
 });
 
 bot.on('message', message => {
-    let str = message.content;
-    let m;
+    if(message.content.match(regex)) {
+        let str = message.content;
+        let m;
 
-    while ((m = regex.exec(str)) !== null) {
-        if (m.index === regex.lastIndex) {
-            regex.lastIndex++;
+        while ((m = regex.exec(str)) !== null) {
+            if (m.index === regex.lastIndex) {
+                regex.lastIndex++;
+            }
+
+            console.log(m[0]);
+            console.log(m[1]);
+            console.log(m[2]);
         }
-
-        console.log(m[0]);
-        console.log(m[1]);
-        console.log(m[2]);
+        message.reply('bla');
     }
-    message.reply('bla');
 });
 
 bot.on('disconnected', function () {
