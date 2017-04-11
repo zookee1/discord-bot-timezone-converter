@@ -1,7 +1,7 @@
 const env = require('./config.json');
 const InsomBot = require('./insombot/index.js');
 const Discord = require('discord.js');
-const converter = require('moment-timezone.min.js');
+const converter = require('moment-timezone.js');
 
 const ins = new InsomBot;
 const bot = new Discord.Client();
