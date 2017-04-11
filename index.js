@@ -15,11 +15,12 @@ bot.on('message', message => {
         let str = message.content;
         let m = regex.exec(str);
         let d = new Date();
+        console.log(d);
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
-        console.log(splitTime(m[3])[0], splitTime(m[3])[1]);
-        let timeToConvert   = d.setHours(splitTime(m[3])[0],splitTime(m[3])[1],0,0);
-        console.log(timeToConvert);
+        let hours           = splitTime(m[3])
+        d.setHours(hours[0],hours[1],0,0);
+        console.log(d);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
         let convertedTime = formatDate(startTimeInTimezone.clone().tz(toTimeZone).format());
 
