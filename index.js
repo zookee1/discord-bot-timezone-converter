@@ -17,6 +17,7 @@ bot.on('message', message => {
         let today = new Date();
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
+        console.log('m[3]', m[3]);
         let timeToConvert   = splitTime(m[3]);
         console.log('timeToConvert', timeToConvert);
         let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
