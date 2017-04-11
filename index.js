@@ -19,6 +19,7 @@ bot.on('message', message => {
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
         let hours           = splitTime(m[3])
+        console.log(hours[0], hours[1]);
         d.setHours(hours[0],hours[1],0,0);
         console.log(d);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
@@ -39,10 +40,9 @@ bot.login(env.discord.token);
 function formatDate(date) {
     var d = new Date(date),
         hours = '' + (d.getHours());
-        // minutes = '' + d.getMinutes();
+        minutes = '' + d.getMinutes();
 
-    // return [hours, minutes].join(':');
-    return hours;
+    return [hours, minutes].join(':');
 }
 
 function splitTime(string) {
