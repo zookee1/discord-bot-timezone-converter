@@ -17,11 +17,9 @@ bot.on('message', message => {
         let today = new Date();
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
-        console.log('m[3]', m[3]);
+        console.log('m[2]', m[2]);
         let timeToConvert   = splitTime(m[3]);
-        console.log('timeToConvert', timeToConvert);
         let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
-        console.log('d', d);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
         let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('ha z');
 
@@ -48,7 +46,6 @@ function formatDate(date) {
 function splitTime(string) {
     const regex = /^(\d+)\:?(\d+)?(\w+)?/g;
     let m = regex.exec(string);
-    console.log('m', m);
 
     minutes = (typeof m[2] === 'undefined' ? 0 : m[1]);
     pm      = (typeof m[3] === 'undefined' ? 0 : 12)
