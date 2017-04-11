@@ -20,6 +20,7 @@ bot.on('message', message => {
         let timeToConvert   = splitTime(m[3]);
         let d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
+        console.log(startTimeInTimezone);
         let convertedTime = startTimeInTimezone.tz(toTimeZone).format('LT');
 
         message.reply(convertedTime);
