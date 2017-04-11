@@ -39,8 +39,9 @@ function splitTime(string) {
     let m = regex.exec(string);
     console.log(m);
 
-    minutes = (typeof m[3] === 'undefined' ? 0 : m[1]);
+    hours   = (typeof m[2] === 'undefined' ? 0 : m[2]);
+    minutes = (typeof m[3] === 'undefined' ? 0 : m[3]);
     pm      = (typeof m[4] === 'undefined' ? 0 : 12)
 
-    return [parseInt(m[2])+pm,minutes];
+    return [parseInt(hours)+pm,minutes];
 }
