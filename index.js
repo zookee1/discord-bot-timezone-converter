@@ -6,7 +6,7 @@ const converter = require('moment-timezone');
 const ins = new InsomBot;
 const bot = new Discord.Client();
 
-const regex = /^!tz\s+(\w+)\s+(\w+)\s+(\w+)$/g;
+const regex = /^!tz\s+(\w+\/\w+)\s+(\w+\/\w+)\s+(\w+)$/g;
 
 
 bot.on("ready", function () {
