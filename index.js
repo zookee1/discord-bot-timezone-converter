@@ -19,9 +19,7 @@ bot.on('message', message => {
         let toTimeZone      = m[2];
         let timeToConvert   = m[3];
         let startTimeInTimezone = converter.tz(d.getTime(timeToConvert), fromTimeZone);
-        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format();
-        let c = d.getTime(convertedTime).toTimeString();
-        console.log(c.replace(/.*(\d{2}:\d{2}).*/, "$1"));
+        let convertedTime = formatDate(startTimeInTimezone.clone().tz(toTimeZone).format());
 
         //.toTimeString().replace(/.*(\d{2}:\d{2}).*/, "$1")
 
@@ -35,3 +33,12 @@ bot.on('disconnected', function () {
 });
 
 bot.login(env.discord.token);
+
+
+function formatDate(date) {
+    var d = new Date(date),
+        hours = '' + (d.getMonth() + 1),
+        minutes = '' + d.getDate();
+
+    return [hours, minutes].join(':');
+}
