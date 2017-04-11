@@ -28,8 +28,11 @@ bot.on('message', message => {
         let toTimeZone      = m[2];
         let timeToConvert   = m[3];
         let startTimeInTimezone = converter.tz(timeToConvert, fromTimeZone);
+        let convertedTime = startTimeInTimezone.clone.tz(toTimeZone);
+        console.log(startTimeInTimezone);
+        console.log(convertedTime);
 
-        message.reply(startTimeInTimezone.clone.tz(toTimeZone));
+        message.reply('stuff');
     }
 });
 
