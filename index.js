@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const converter = require('moment-timezone');
 
 const bot = new Discord.Client();
-const regex = /^!tz\s+(\w+\/?\w+?)\s+(\w+\/?\w+?)\s+(\w+)/g;
+const regex = /^!tz\s+(\w+\/?\w+?)\s+(\w+\/?\w+?)\s+(\w+\:?\w+)?/g;
 
 
 bot.on("ready", function () {
