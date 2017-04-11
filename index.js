@@ -23,7 +23,7 @@ bot.on('message', message => {
         d.setHours(hours[0],hours[1],0,0);
         console.log(d);
         let startTimeInTimezone = converter.tz((d), fromTimeZone);
-        let convertedTime = formatDate(startTimeInTimezone.clone().tz(toTimeZone).format());
+        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format('ha z');
 
         message.reply(convertedTime);
     }
@@ -48,7 +48,7 @@ function formatDate(date) {
 function splitTime(string) {
     const regex = /^(\d+)\:?(\d+)?/g;
     let m = regex.exec(string);
-    console.log('m2' + m[2]);
+    console.log('m' + m);
 
     minutes = (typeof m[2] === 'undefined' ? 0 : m[1]);
 
