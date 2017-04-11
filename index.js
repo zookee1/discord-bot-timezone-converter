@@ -17,10 +17,11 @@ bot.on('message', message => {
     if(message.content.match(regex)) {
         let str = message.content;
         let m = regex.exec(str);
+        let d = new Date();
 
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
-        let timeToConvert   = m[3];
+        let timeToConvert   = d.getTime(m[3]);
         let startTimeInTimezone = converter.tz(timeToConvert, fromTimeZone);
         let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format();
         console.log(startTimeInTimezone);
