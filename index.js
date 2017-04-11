@@ -17,11 +17,9 @@ bot.on('message', message => {
         let d = new Date();
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
-        let timeToConvert   = m[3];
-        let startTimeInTimezone = converter.tz(d.getTime(timeToConvert), fromTimeZone);
+        let timeToConvert   = d.setHours(splitTime(m[3]));
+        let startTimeInTimezone = converter.tz((d), fromTimeZone);
         let convertedTime = formatDate(startTimeInTimezone.clone().tz(toTimeZone).format());
-
-        //.toTimeString().replace(/.*(\d{2}:\d{2}).*/, "$1")
 
         message.reply(convertedTime);
     }
@@ -37,8 +35,25 @@ bot.login(env.discord.token);
 
 function formatDate(date) {
     var d = new Date(date),
-        hours = '' + (d.getHours()),
-        minutes = '' + d.getMinutes();
+        hours = '' + (d.getHours());
+        // minutes = '' + d.getMinutes();
 
-    return [hours, minutes].join(':');
+    // return [hours, minutes].join(':');
+    return hours;
+}
+
+function splitTime(string) {
+    const regex = /^(\d+)\:?(\d+)?/g;
+    const str = string;
+    let m;
+
+    while ((m = regex.exec(str)) !== null) {
+        if (m.index === regex.lastIndex) {
+            regex.lastIndex++;
+        }
+    }
+
+    minutes = (typeof m[2] === 'undefined' ? 0 : m[1]);
+
+    return m[1]+','+minutes+',0,0';
 }
