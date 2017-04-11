@@ -21,11 +21,11 @@ bot.on('message', message => {
             regex.lastIndex++;
         }
 
-        m.forEach((match, groupIndex) => {
-            console.log(`Found match, group ${groupIndex}: ${match}`);
-        });
+        console.log(m[0]);
+        console.log(m[1]);
+        console.log(m[2]);
     }
-    message.reply(m);
+    message.reply('bla');
 });
 
 bot.on('disconnected', function () {
