@@ -44,5 +44,5 @@ function splitTime(string) {
     minutes = (typeof m[2] === 'undefined' ? 0 : m[2]);
     pm      = (typeof m[3] === 'undefined' ? 0 : 12)
 
-    return [parseInt(hours)+pm,minutes];
+    return [parseInt(hours)+pm,parseInt(minutes)];
 }
