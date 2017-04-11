@@ -13,24 +13,19 @@ bot.on("ready", function () {
 });
 
 bot.on('message', message => {
-  if (message.content === '!tz') {
-
-    const str = message.content;
+    let str = message.content;
     let m;
 
     while ((m = regex.exec(str)) !== null) {
-        // This is necessary to avoid infinite loops with zero-width matches
         if (m.index === regex.lastIndex) {
             regex.lastIndex++;
         }
 
-        // The result can be accessed through the `m`-variable.
         m.forEach((match, groupIndex) => {
             console.log(`Found match, group ${groupIndex}: ${match}`);
         });
     }
     message.reply(m);
-  }
 });
 
 bot.on('disconnected', function () {
