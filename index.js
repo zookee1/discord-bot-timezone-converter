@@ -22,7 +22,7 @@ bot.on('message', message => {
         let toTimeZone      = m[2];
         let timeToConvert   = m[3];
         let startTimeInTimezone = converter.tz(timeToConvert, fromTimeZone);
-        let convertedTime = startTimeInTimezone.clone.tz(toTimeZone);
+        let convertedTime = startTimeInTimezone.clone().tz(toTimeZone).format();
         console.log(startTimeInTimezone);
         console.log(convertedTime);
 
