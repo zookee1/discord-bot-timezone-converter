@@ -37,8 +37,8 @@ bot.login(env.discord.token);
 
 function formatDate(date) {
     var d = new Date(date),
-        hours = '' + (d.getMonth() + 1),
-        minutes = '' + d.getDate();
+        hours = '' + (d.getHours()),
+        minutes = '' + d.getMinutes();
 
     return [hours, minutes].join(':');
 }
