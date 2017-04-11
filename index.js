@@ -18,8 +18,10 @@ bot.on('message', message => {
         let fromTimeZone    = m[1];
         let toTimeZone      = m[2];
         let timeToConvert   = splitTime(m[3]);
+        console.log('timeToConvert',timeToConvert)
+        console.log(new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0));
         let startTimeInTimezone = converter.tz(new Date(today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0), fromTimeZone);
-        console.log(startTimeInTimezone);
+        console.log('startTimeInTimezone',startTimeInTimezone);
         let convertedTime = startTimeInTimezone.tz(toTimeZone).format('LT');
 
         message.reply(convertedTime);
