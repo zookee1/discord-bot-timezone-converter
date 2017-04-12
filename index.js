@@ -20,18 +20,18 @@ bot.on('message', message => {
         let toTimeZone      = m[2];
         let timeToConvert   = splitTime(m[3]);
 
-        try {
-            let startTimeInTimezone = converter.tz(new Date().getTime(), fromTimeZone);
-        } catch(err) {
-            message.reply('Timezone ' + m[1] + ' not found!');
-        }
+        // try {
+        //     let startTimeInTimezone = converter.tz(new Date().getTime(), fromTimeZone);
+        // } catch(err) {
+        //     message.reply('Timezone ' + m[1] + ' not found!');
+        // }
         
-        try {
-            let convertedTime = startTimeInTimezone.tz(toTimeZone).format('LT');
-            message.reply(convertedTime);
-        } catch(err) {
-            message.reply('Timezone ' + m[2] + ' not found!');
-        }
+        // try {
+        //     let convertedTime = startTimeInTimezone.tz(toTimeZone).format('LT');
+        //     message.reply(convertedTime);
+        // } catch(err) {
+        //     message.reply('Timezone ' + m[2] + ' not found!');
+        // }
         // today.getFullYear(), today.getMonth(), today.getDate(), timeToConvert[0], timeToConvert[1], 0
 
     }
